@@ -21,7 +21,7 @@ app.get('/api/notes', (req, res) => {
         res.send(data)
     })
 })
-
+// Post --> to get new notes
 app.post('/api/notes', (req, res) => {
     const dataNotes = JSON.parse(fs.readFileSync("./db/db.json"));
     const newNote = req.body;
@@ -36,10 +36,14 @@ app.post('/api/notes', (req, res) => {
     res.json(newNote)
     });
 
-
-
-
-
+// to Delete notes
+app.delete("/api/notes/:id", (req, res) => {
+    const dataNotes = JSON.parse(fs.readFileSync("./db/db.json"));
+    const removeNotes = dataNotes.filter((deleteNote) => 
+        deleteNote.id !== req.params.id);
+    fs.writeFileSync("./db/db.json", JSON.stringify(dataNotes));
+    res.json(removeNotes);
+})
 
 // to get all
 app.get('*', (req, res) => {
