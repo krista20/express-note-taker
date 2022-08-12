@@ -22,5 +22,5 @@ Notes are able to be deleted.
 
 ## Deployed Application
 GitHub: https://github.com/krista20/express-note-taker
-Deployed URL: 
+Deployed URL: https://express-notetaker-20.herokuapp.com/
 
